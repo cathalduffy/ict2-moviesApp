@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MovieDetailsPage from './pages/movieDetailsPage'
+import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
+import HomePage from "./pages/homePage";
+import MoviePage from "./pages/movieDetailsPage";
+//import MovieDetailsPage from './pages/movieDetailsPage'
 
 const images = [
     "/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg",
@@ -94,9 +97,14 @@ const movies = [sample, sample, sample, sample, sample, sample, sample];
 
 const App = () => {
     return (
-        <MovieDetailsPage movie={sample} images={images} />
-        );
+      <BrowserRouter>
+        <Routes>
+          <Route path="/movies/:id" element={<MoviePage/>} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    );
   };
   
-
-ReactDOM.render(<App />, document.getElementById("root"));
+  ReactDOM.render(<App />, document.getElementById("root"));
