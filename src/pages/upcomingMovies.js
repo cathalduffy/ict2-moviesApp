@@ -16,16 +16,16 @@ const UpcomingPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }  
-  const movies = data.results;
+  const upcomingMovies = data.results;
 
   // These three lines are redundant; we will replace them laterg.
-  const favourites = movies.filter(m => m.favouurite)
+  const favourites = upcomingMovies.filter(m => m.favouurite)
   localStorage.setItem('favourites', JSON.stringify(favourites))
 
   return (
     <PageTemplate
-      title="Discover Movies"
-      movies={movies}
+      title="Upcoming Movies"
+      movies={upcomingMovies}
       action={(movie) => {
         return <AddToFavouritesIcon movie={movie} />
       }}

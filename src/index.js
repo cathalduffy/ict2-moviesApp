@@ -15,8 +15,8 @@ import MoviesContextProvider from "./contexts/moviesContext";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 360000,
-      refetchInterval: 360000, 
+      staleTime: 10000,
+      refetchInterval: 10000, 
       refetchOnWindowFocus: false
     },
   },
